@@ -6,15 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface BoardDAO {
-    public int add(BoardDTO boardDTO);
+    public void add(BoardDTO boardDTO);
 
     public BoardVO getBoard(BoardDTO boardDTO);
 
-    public List<BoardVO> getBoardList();
+    public List<BoardVO> getBoardList(BoardDTO boardDTO);
 
-    public boolean delete(BoardDTO boardDTO);
+    public void delete(BoardDTO boardDTO);
 
-    public boolean update(BoardDTO boardDTO);
+    public void update(BoardDTO boardDTO);
+
+    public void truncate();
 }
