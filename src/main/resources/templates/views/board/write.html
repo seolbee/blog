@@ -1,0 +1,17 @@
+<!doctype html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section th:fragment="BoardWriteForm">
+        <form action="/board/write">
+            <input type="text" name="title">
+            <textarea name="content" id="editorjs" id="" cols="30" rows="10"></textarea>
+            <button>글 올리기</button>
+        </form>
+        <script src="/resources/lib/js/editor.js"></script>
+        <script>
+            const editor = new EditorJS('editorjs');
+        </script>
+    </section>
+</body>
+</html>
