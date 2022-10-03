@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <link rel="stylesheet" href="/resources/css/style.css">
+</head>
+<body th:fragment="body(content)">
+    <header>
+        <h1>헤더입니다.</h1>
+    </header>
+    <section th:replace="${content}"></section>
+    <footer>
+        푸터 입니다.
+    </footer>
+</body>
+</html>
