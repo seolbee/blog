@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org" th:replace="layouts/layout_template :: body(~{::section})">
 <section>
     <form method="POST">
+        <input type="hidden" name="category" value="1">
         <input type="text" name="title">
         <textarea name="content" id="editorjs" cols="30" rows="10"></textarea>
         <button>글 올리기</button>

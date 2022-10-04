@@ -13,8 +13,7 @@ public class BoardDTO {
         this.category = category;
     }
 
-    public BoardDTO() {
-    }
+    public BoardDTO() {}
 
     public int getIdx() {
         return idx;
@@ -46,5 +45,13 @@ public class BoardDTO {
 
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "idx : " + this.idx + "\n" +
+                "title : " + this.title + "\n" +
+                "content : " + this.content + "\n" +
+                "category : " + this.category + "\n";
     }
 }
