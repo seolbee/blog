@@ -55,4 +55,12 @@ public class BoardVO {
     public void setMode_date(String mode_date) {
         this.mode_date = mode_date;
     }
+
+    @Override
+    public String toString() {
+        return "idx : " + this.idx + "\n" +
+                "title : " + this.title + "\n" +
+                "content : " + this.content + "\n" +
+                "category : " + this.category + "\n";
+    }
 }

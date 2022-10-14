@@ -8,13 +8,11 @@ import java.util.List;
 
 public interface BoardService {
 
-    public void postBoard(BoardDTO boardDTO);
-
     public void editBoard(BoardDTO boardDTO);
 
-    public void deleteBoard(BoardDTO boardDTO);
+    public void deleteBoard(int boardIdx);
 
-    public List<BoardVO> selectBoardList(BoardDTO boardDTO);
+    public BoardVO selectBoardInfo(Integer boardIdx);
 
-    public BoardVO selectBoardInfo(BoardDTO boardDTO);
+    public List<BoardVO> searchBoardList(BoardDTO boardDTO);
 }

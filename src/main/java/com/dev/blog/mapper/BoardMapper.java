@@ -3,7 +3,6 @@ package com.dev.blog.mapper;
 import com.dev.blog.domain.dto.BoardDTO;
 import com.dev.blog.domain.vo.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
@@ -13,11 +12,11 @@ public interface BoardMapper {
 
     public List<BoardVO> selectBoardList(BoardDTO boardDTO);
 
-    public BoardVO selectBoard(BoardDTO boardDTO);
+    public BoardVO selectBoard(int boardIdx);
 
     public void updateBoard(BoardDTO boardDTO);
 
-    public void deleteBoard(BoardDTO boardDTO);
+    public void deleteBoard(int boardIdx);
 
     public void truncateBoard();
 }

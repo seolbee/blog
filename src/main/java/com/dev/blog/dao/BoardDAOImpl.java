@@ -20,8 +20,8 @@ public class BoardDAOImpl implements BoardDAO {
     }
 
     @Override
-    public BoardVO getBoard(BoardDTO boardDTO) {
-        return this.mapper.selectBoard(boardDTO);
+    public BoardVO getBoard(int boardIdx) {
+        return this.mapper.selectBoard(boardIdx);
     }
 
     @Override
@@ -30,8 +30,8 @@ public class BoardDAOImpl implements BoardDAO {
     }
 
     @Override
-    public void delete(BoardDTO boardDTO) {
-        this.mapper.deleteBoard(boardDTO);
+    public void delete(int boardIdx) {
+        this.mapper.deleteBoard(boardIdx);
     }
 
     @Override

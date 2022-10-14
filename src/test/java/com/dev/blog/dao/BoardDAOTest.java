@@ -5,10 +5,9 @@ import com.dev.blog.domain.vo.BoardVO;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import javax.annotation.Resource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +19,7 @@ import static org.hamcrest.Matchers.*;
 @SpringBootTest
 public class BoardDAOTest {
 
-    @Resource(name="BoardDAO")
+    @Autowired
     private BoardDAO boardDAO;
 
     private List<BoardDTO> boardDTOList;
@@ -41,9 +40,7 @@ public class BoardDAOTest {
         BoardDTO board1 = boardDTOList.get(0);
         this.boardDAO.add(board1);
 
-        BoardDTO boardDTO1 = new BoardDTO();
-        boardDTO1.setIdx(1);
-        BoardVO boardVO1 = this.boardDAO.getBoard(boardDTO1);
+        BoardVO boardVO1 = this.boardDAO.getBoard(1);
 
         assertThat(board1.getTitle(), is(boardVO1.getTitle()));
         assertThat(board1.getContent(), is(boardVO1.getContent()));
@@ -51,9 +48,7 @@ public class BoardDAOTest {
         BoardDTO board2 = boardDTOList.get(1);
         this.boardDAO.add(board2);
 
-        BoardDTO boardDTO2 = new BoardDTO();
-        boardDTO2.setIdx(2);
-        BoardVO boardVO2 = this.boardDAO.getBoard(boardDTO2);
+        BoardVO boardVO2 = this.boardDAO.getBoard(2);
 
         assertThat(board2.getTitle(), is(boardVO2.getTitle()));
         assertThat(board2.getContent(), is(boardVO2.getContent()));
@@ -62,9 +57,7 @@ public class BoardDAOTest {
         BoardDTO board3 = boardDTOList.get(2);
         this.boardDAO.add(board3);
 
-        BoardDTO boardDTO3 = new BoardDTO();
-        boardDTO3.setIdx(3);
-        BoardVO boardVO3 = this.boardDAO.getBoard(boardDTO3);
+        BoardVO boardVO3 = this.boardDAO.getBoard(3);
 
         assertThat(board3.getTitle(), is(boardVO3.getTitle()));
         assertThat(board3.getContent(), is(boardVO3.getContent()));
@@ -86,7 +79,7 @@ public class BoardDAOTest {
         board1Update.setContent("내용111 바꿈");
 
         boardDAO.update(board1Update);
-        BoardVO boardVO = boardDAO.getBoard(board1Update);
+        BoardVO boardVO = boardDAO.getBoard(board1Update.getIdx());
 
         assertThat(board1.getTitle(), not(boardVO.getTitle()));
         assertThat(board1.getContent(), not(boardVO.getContent()));
@@ -106,15 +99,14 @@ public class BoardDAOTest {
         this.boardDAO.add(board2);
 
         BoardDTO boardDTO = new BoardDTO();
-        boardDTO.setIdx(1);
-        BoardVO boardVO1 = boardDAO.getBoard(boardDTO);
+        BoardVO boardVO1 = boardDAO.getBoard(1);
 
         assertThat(board1.getTitle(), is(boardVO1.getTitle()));
         assertThat(board1.getContent(), is(boardVO1.getContent()));
         assertThat(board1.getCategory(), is(boardVO1.getCategory()));
 
-        boardDAO.delete(boardDTO);
-        BoardVO boardVO2 = boardDAO.getBoard(boardDTO);
+        boardDAO.delete(1);
+        BoardVO boardVO2 = boardDAO.getBoard(1);
 
         assertThat(boardVO2, is(nullValue()));
     }
